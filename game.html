@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no, viewport-fit=contain, minimal-ui">
+    <title></title>
+    
+    <style>
+body { background: black;}
+
+
+   
+#fill{
+           margin: 0;
+            padding: 0;
+            background-color: indigo;
+            overflow: hidden;
+            min-height: 256px;
+            min-width: 144px;
+            max-height: 1280px;
+			max-width: 720px;
+            transform-origin: 0 0;
+            }
+  
+#alma{
+           min-height: 1920px;
+            min-width: 1080px;
+            height: 100%;
+			width: 100%;
+            left: 0px;
+            top: 0%;
+            position: absolute;
+            
+         transform-origin: 0 0;
+        }
+    </style>
+    
+
+    
+  </head>
+  <body>
+  
+  
+
+
+
+<iframe  id="alma" src="https://hohlywater.games/hw/index.html" scrolling="no" style="height:100%; position: fixed"></iframe>
+
+
+
+  <script>
+ 
+
+let outer = document.getElementById('alma'),
+ wrapper = document.getElementById('fill'),
+
+  maxWidth = outer.clientWidth,
+  maxHeight = outer.clientHeight;
+window.addEventListener("resize", resize);
+resize();
+
+function resize() {
+  let scale,
+    width = window.innerWidth,
+      height = window.innerHeight,
+    isMax = width >= maxWidth && height >= maxHeight;
+
+  scale = Math.min(width / maxWidth, height / maxHeight);
+  outer.style.transform = isMax ? '' : 'scale(' + scale + ')';
+  wrapper.style.width = isMax ? '' : maxWidth * scale;
+  wrapper.style.height = isMax ? '' : maxHeight * scale;
+  outer.style.width = isMax ? '' : maxWidth * scale;
+  outer.style.height = isMax ? '' : maxHeight * scale;
+ 
+}
+ 
+</script>
+
+  </body>
+</html>
